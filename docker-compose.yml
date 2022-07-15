@@ -2,13 +2,15 @@ version: '3.8'
 
 services:
     worker:
-        build: .
+        build: ..
         command: celery -A workers.thumbnail worker --loglevel=info
         environment:
             - BROKER=amqp://guest:guest@rabbitmq:5672//
             - BACKEND=rpc://
         volumes:
-            - /tmp/static:/tmp/static
+            - ./tmp/static:/tmp/static
+            - ./entities/:/usr/src/entities/
+            - ./workers/:/usr/src/workers/
         depends_on: 
             - rabbitmq
     

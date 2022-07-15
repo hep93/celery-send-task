@@ -17,7 +17,3 @@ RUN set -eux \
     && rm -rf /root/.cache/pip
 
 RUN mkdir -p /tmp/static
-
-COPY ../entities/ /usr/src/entities/
-COPY ../workers /usr/src/workers/
-COPY ../tests/ /usr/src/tests/
