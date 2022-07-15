@@ -15,6 +15,8 @@ celery.conf.update({ 'broker_url': 'amqp://guest:guest@localhost:5672//', 'resul
 result = celery.send_task('task_wait')
 print(f'Status: {result.status}')
 
+print(f'Result: {result.get()}')
+
 while not result.ready():
     time.sleep(1)
     print(f'Waiting for result... Status: {result.status}')
