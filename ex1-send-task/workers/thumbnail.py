@@ -1,7 +1,6 @@
 from workers.config import app
-from entities.thumbnail import Thumbnail
+from func.thumbnail import create_thumbnail
 
 @app.task(bind=True, name='create_thumbnail')
 def create(self, url, filename):
-    thumbnail = Thumbnail(url, filename)
-    thumbnail.create()
+    create_thumbnail(url, filename)

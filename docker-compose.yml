@@ -7,9 +7,10 @@ services:
         environment:
             - BROKER=amqp://guest:guest@rabbitmq:5672//
             - BACKEND=rpc://
+            - STATIC_DIR=/tmp/static
         volumes:
             - ./tmp/static:/tmp/static
-            - ./entities/:/usr/src/entities/
+            - ./func/:/usr/src/func/
             - ./workers/:/usr/src/workers/
         depends_on: 
             - rabbitmq
