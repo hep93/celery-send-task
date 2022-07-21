@@ -3,7 +3,7 @@ version: '3.8'
 services:
     worker:
         build: ..
-        command: celery -A workers.tasks worker --loglevel=info
+        command: celery -A workers.tasks worker -B --loglevel=info
         environment:
             - BROKER=amqp://guest:guest@rabbitmq:5672//
             - BACKEND=rpc://
