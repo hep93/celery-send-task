@@ -1,7 +1,7 @@
 from workers.config import app
 
 
-@app.task(bind=True, name='create_add', ignore_result=True)
+@app.task
 def add(x, y):
     z = x + y
     print(z)
