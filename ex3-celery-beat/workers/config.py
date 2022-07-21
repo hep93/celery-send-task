@@ -9,9 +9,9 @@ app.conf.update({
     'result_backend': os.environ.get('BACKEND', 'amqp://rabbitmq:5672//')
 })
 app.conf.beat_schedule = {
-    'add-every-5-seconds': {
+    'add-every-10-seconds': {
         'task': 'workers.tasks.add',
-        'schedule': 5.0,
+        'schedule': 10.0,
         'args': (16, 16)
     },
 }
